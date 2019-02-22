@@ -10,15 +10,15 @@
 
 估计`Linus Torvalds`会鄙视你吧。
 
-为了专注于工作，不分心来鄙视你，`Linus Torvalds`在git中内置了一套定位bug的命令。
+为了专注于工作，不分心来鄙视你，`Linus Torvalds`在Git中内置了一套定位bug的命令。
 
 大家都玩过猜数字游戏吧。主持人悄悄写下一个数，给大家一个数字区间，然后大家轮流开始切割，谁切到主持人写的那个数就要自罚三杯了。
 
-对，这就是二分法。git利用二分法定位bug的命令是`git bisect`。
+对，这就是二分法。Git利用二分法定位bug的命令是`git bisect`。
 
 #### 使用
 
-假设目前的git项目历史是这样的。
+假设目前的Git项目历史是这样的。
 
 ```
 C0 -- C1 -- C2 -- C3 -- C4 -- C5 -- C6 -- C7 -- C8 -- C9(HEAD -> master)
@@ -44,7 +44,7 @@ Bisecting: 2 revisions left to test after this (roughly 1 step)
 [97cc0e879dc09796bd56cfd7c3a54deb41e447f6] C6
 ```
 
-HEAD指针指向`C4`commit后，你应该运行一下程序，如果没问题，那说明有bug的提交在它之后。我们只需要告诉git当前commit以及更老的commit都是好的。
+HEAD指针指向`C4`commit后，你应该运行一下程序，如果没问题，那说明有bug的提交在它之后。我们只需要告诉Git当前commit以及更老的commit都是好的。
 
 然后HEAD指针就自动指向`C6`commit。
 
@@ -65,7 +65,7 @@ $ git bisect bad
 a7e09bd3eab7d1e824c0338233f358cafa682af0 is the first bad commit
 ```
 
-因为`C4`commit和`C5`commit之间已经不需要二分了，git会告诉你，`C5`commit是你标记为`bad`的最早的commit。问题就应该出在`C5`commit上。
+因为`C4`commit和`C5`commit之间已经不需要二分了，Git会告诉你，`C5`commit是你标记为`bad`的最早的commit。问题就应该出在`C5`commit上。
 
 ```
 git bisect reset
@@ -76,7 +76,7 @@ Switched to branch 'master'
 
 既然找到问题了，那就可以退出`git bisect`工具了。
 
-另外，`git bisect old`和`git bisect good`的效果相同，`git bisect new`和`git bisect bad`的效果相同，这是因为git考虑到，有时候开发者并不是想定位bug，只是想定位某个commit，这时候用`good bad`就会有点别扭。
+另外，`git bisect old`和`git bisect good`的效果相同，`git bisect new`和`git bisect bad`的效果相同，这是因为Git考虑到，有时候开发者并不是想定位bug，只是想定位某个commit，这时候用`good bad`就会有点别扭。
 
 #### 后悔
 
@@ -125,7 +125,7 @@ Bisecting: 2 revisions left to test after this (roughly 1 step)
 [97cc0e879dc09796bd56cfd7c3a54deb41e447f6] C6
 ```
 
-git会根据log从头开始重新`bisect`，错误的标记就被擦除了。
+Git会根据log从头开始重新`bisect`，错误的标记就被擦除了。
 
 然后就是重新做人啦。
 

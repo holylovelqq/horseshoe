@@ -418,3 +418,7 @@ Flexbox也是这个道理。它是一个一维布局模型，我们就要找到�
 > 这个问题我们讨论过吧？因为没有`jusifty-items`属性，所以`justify-self`属性也无从谈起。
 >
 > 你看人家Grid就有`justify-self`属性。
+
+## 其他
+
+有一个小游戏[Flexbox Froggy](https://flexboxfroggy.com/)可以帮助你轻松的实践Flexbox的各项特性。
